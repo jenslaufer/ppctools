@@ -2,7 +2,8 @@ cost_per_conversion <- function(cpc, cr) {
   cpc / cr
 }
 
-num_of_conversions_for_ad_budget <- function(ad_budget, cpc, cr) {
+num_of_conversions_for_ad_budget <- 
+function(ad_budget, cpc, cr) {
   ad_budget / cost_per_conversion(cpc, cr)
 }
 
@@ -23,7 +24,8 @@ profit_for_ad_budget <-
 
 ad_budget_for_profit <-
   function(profit, net_product_price, cpc, cr) {
-    profit * cost_per_conversion(cpc, cr) / (net_product_price - cost_per_conversion(cpc, cr))
+    profit * cost_per_conversion(cpc, cr) / 
+    (net_product_price - cost_per_conversion(cpc, cr))
   }
 
 volume_for_profit <-
@@ -38,9 +40,9 @@ num_of_conversions <- function(volume, cr, ctr) {
 product_price_for_profit <- function(profit, volume, cpc, cr, ctr) {
   num_of_conversions <- num_of_conversions(volume, cr, ctr)
   ad_cost <- cost_per_conversion(cpc, cr) * num_of_conversions
-  
+
   gross <- profit + ad_cost
-  
+
   gross / num_of_conversions
 }
 
@@ -48,7 +50,7 @@ profit_for_specified_volume <-
   function(volume, cpc, net_product_price, cr, ctr) {
     num_of_conversions <- num_of_conversions(volume, cr, ctr)
     ad_cost <- volume * ctr * cpc
-    
+
     num_of_conversions * net_product_price - ad_cost
   }
 
